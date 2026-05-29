@@ -3,442 +3,277 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Awani Productions — Reshaping African Narratives</title>
+<title>Awani Productions Limited</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --red: #8B0000;
+  --yellow: #D4B800;
+  --blue: #5B8FBF;
+  --offwhite: #F0EDE8;
+  --grey: #1a1a1a;
+  --mid-grey: #2a2a2a;
+  --light-grey: #888;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--offwhite);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 3rem;
+  background: rgba(0,0,0,0.95);
+  border-bottom: 1px solid #1a1a1a;
+}
+.nav-logo img { height: 42px; width: auto; display: block; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  color: var(--light-grey); text-decoration: none;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
 
-  :root {
-    --gold: #C8A96E;
-    --gold-dim: #8a7048;
-    --cream: #F4EFE6;
-    --black: #080808;
-    --dark: #111111;
-    --mid: #1c1c1c;
-    --text: #d8d0c4;
-    --muted: #7a7268;
-    --stripe-r: #E63030;
-    --stripe-y: #F0C040;
-    --stripe-b: #1a52d4;
-  }
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 3rem 5rem;
+  position: relative;
+  background: var(--black);
+  overflow: hidden;
+}
+.hero-stripe-bar {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+  display: flex; flex-direction: column;
+}
+.hs-r { background: var(--red); flex: 1; }
+.hs-y { background: var(--yellow); flex: 1; }
+.hs-b { background: var(--blue); flex: 1; }
+.hero-bg-letter {
+  position: absolute; right: -2rem; bottom: -4rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40vw; color: rgba(255,255,255,0.03);
+  line-height: 1; pointer-events: none; user-select: none;
+}
+.hero-content { position: relative; z-index: 2; max-width: 800px; }
+.hero-location {
+  font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--light-grey); margin-bottom: 1.5rem; font-weight: 500;
+}
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 9vw, 9rem);
+  line-height: 0.95; color: var(--white);
+  margin-bottom: 2rem; letter-spacing: 0.02em;
+}
+.hero-sub {
+  font-size: 13px; line-height: 1.9; color: var(--light-grey);
+  max-width: 420px; margin-bottom: 3rem; font-weight: 400;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  background: var(--white); color: var(--black); text-decoration: none;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  font-weight: 700; padding: 0.9rem 2rem; transition: background 0.2s;
+}
+.hero-cta:hover { background: var(--yellow); }
 
-  html { scroll-behavior: smooth; }
+section { padding: 6rem 3rem; }
+.section-tag {
+  font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--light-grey); margin-bottom: 0.75rem; font-weight: 500;
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: var(--white); line-height: 1;
+  margin-bottom: 2.5rem; letter-spacing: 0.03em;
+}
+.rule { width: 40px; height: 3px; background: var(--red); margin-bottom: 2.5rem; }
 
-  body {
-    background: var(--black);
-    color: var(--text);
-    font-family: 'Barlow', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 1.75;
-    overflow-x: hidden;
-  }
+#about { background: var(--grey); }
+.about-grid {
+  display: grid; grid-template-columns: 1.2fr 1fr;
+  gap: 6rem; max-width: 1100px;
+}
+.about-body p { margin-bottom: 1.5rem; font-size: 14px; color: #b0a89e; line-height: 1.9; }
+.about-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  margin-top: 3rem; border-top: 1px solid #333; border-left: 1px solid #333;
+}
+.stat { padding: 1.5rem 1.25rem; border-bottom: 1px solid #333; border-right: 1px solid #333; }
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--white); line-height: 1; margin-bottom: 0.25rem; }
+.stat-label { font-size: 10px; letter-spacing: 0.2em; color: var(--light-grey); text-transform: uppercase; font-weight: 500; }
+.ethos-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--light-grey); margin-bottom: 1.5rem; font-weight: 500; }
+.ethos-list { list-style: none; }
+.ethos-list li {
+  font-size: 13px; color: #b0a89e; padding: 1rem 0;
+  border-bottom: 1px solid #2a2a2a; display: flex; gap: 1rem;
+  align-items: flex-start; line-height: 1.6;
+}
+.ethos-list li::before {
+  content: ''; width: 3px; height: 3px; background: var(--yellow);
+  border-radius: 50%; flex-shrink: 0; margin-top: 7px;
+}
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.25rem 3rem;
-    background: linear-gradient(to bottom, rgba(8,8,8,0.95) 0%, transparent 100%);
-    backdrop-filter: blur(2px);
-  }
+#films { background: var(--black); }
+.film-card {
+  max-width: 640px; border: 1px solid #222; padding: 3rem; position: relative;
+}
+.film-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+  background: linear-gradient(to right, var(--red) 0%, var(--yellow) 50%, var(--blue) 100%);
+}
+.film-tag { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--light-grey); margin-bottom: 1rem; font-weight: 500; }
+.film-title { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--white); letter-spacing: 0.04em; margin-bottom: 1rem; }
+.film-desc { font-size: 13px; color: #888; line-height: 1.8; margin-bottom: 2rem; max-width: 480px; }
+.film-link {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  color: var(--white); text-decoration: none; font-size: 11px;
+  letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700;
+  border: 1px solid #444; padding: 0.7rem 1.5rem; transition: border-color 0.2s;
+}
+.film-link:hover { border-color: var(--white); }
+.film-link svg { width: 14px; height: 14px; }
 
-  .nav-logo {
-    display: flex; align-items: center; gap: 0.75rem;
-    text-decoration: none;
-  }
+#services { background: var(--grey); }
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: #2a2a2a; max-width: 1100px;
+}
+.service-item { background: var(--grey); padding: 2rem 1.75rem; transition: background 0.2s; }
+.service-item:hover { background: #222; }
+.service-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: #2a2a2a; line-height: 1; margin-bottom: 0.75rem; }
+.service-title { font-size: 12px; font-weight: 700; color: var(--white); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; }
+.service-body { font-size: 12px; color: #888; line-height: 1.75; }
 
-  .logo-mark {
-    display: flex; align-items: flex-end; gap: 3px; height: 28px;
-  }
-  .logo-stripe { width: 4px; border-radius: 1px; }
-  .ls-r { background: var(--stripe-r); height: 28px; }
-  .ls-y { background: var(--stripe-y); height: 22px; }
-  .ls-b { background: var(--stripe-b); height: 17px; }
+#slated { background: var(--black); }
+.slated-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; }
+.slated-group-label {
+  font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--light-grey); font-weight: 500; margin-bottom: 1.5rem;
+  padding-bottom: 1rem; border-bottom: 1px solid #222;
+}
+.slated-list { list-style: none; }
+.slated-list li {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  padding: 0.9rem 0; border-bottom: 1px solid #111; font-size: 13px; color: #b0a89e;
+}
+.slated-year { font-size: 10px; color: #555; white-space: nowrap; letter-spacing: 0.1em; }
 
-  .nav-wordmark {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 400;
-    font-size: 13px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--cream);
-  }
+#ceo { background: var(--grey); }
+.ceo-grid { display: grid; grid-template-columns: 280px 1fr; gap: 5rem; max-width: 1000px; align-items: start; }
+.ceo-portrait {
+  aspect-ratio: 3/4; background: #111; border: 1px solid #2a2a2a;
+  display: flex; align-items: center; justify-content: center;
+}
+.ceo-initials { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: #2a2a2a; letter-spacing: 0.1em; }
+.ceo-name { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--white); letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+.ceo-role { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--light-grey); font-weight: 500; margin-bottom: 2rem; }
+.ceo-body p { font-size: 13px; color: #b0a89e; margin-bottom: 1.25rem; line-height: 1.9; }
+.influences { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.influence-tag { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light-grey); border: 1px solid #333; padding: 4px 10px; font-weight: 500; }
 
-  .nav-links {
-    display: flex; gap: 2.5rem; list-style: none;
-  }
-  .nav-links a {
-    color: var(--muted); text-decoration: none;
-    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
-    transition: color 0.3s;
-  }
-  .nav-links a:hover { color: var(--gold); }
+#contact { background: var(--black); min-height: 50vh; display: flex; flex-direction: column; justify-content: center; }
+.contact-headline {
+  font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 5rem);
+  color: var(--white); line-height: 1; margin-bottom: 3rem; max-width: 700px; letter-spacing: 0.03em;
+}
+.contact-items { display: flex; flex-direction: column; gap: 1.5rem; max-width: 500px; }
+.contact-row { display: flex; align-items: center; gap: 2rem; }
+.contact-key { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--light-grey); font-weight: 500; min-width: 55px; }
+.contact-val { font-size: 14px; color: var(--offwhite); text-decoration: none; transition: color 0.2s; }
+.contact-val:hover { color: var(--yellow); }
 
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 0 3rem 5rem;
-    position: relative;
-    overflow: hidden;
-  }
+footer {
+  padding: 2rem 3rem; border-top: 1px solid #1a1a1a;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy { font-size: 11px; color: #444; letter-spacing: 0.15em; text-transform: uppercase; }
+.footer-tag { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: #333; letter-spacing: 0.1em; }
 
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: linear-gradient(160deg, #0e0a05 0%, #1a0f00 40%, #0d1a0a 100%);
-  }
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  section { padding: 4rem 1.5rem; }
+  #hero { padding: 0 1.5rem 4rem; }
+  .about-grid, .slated-grid, .ceo-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+@media (max-width: 480px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
 
-  .hero-grain {
-    position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity: 0.35;
-    pointer-events: none;
-  }
-
-  .hero-line {
-    position: absolute; top: 0; left: 3rem;
-    width: 1px; height: 100%;
-    background: linear-gradient(to bottom, transparent 0%, var(--gold-dim) 30%, var(--gold-dim) 70%, transparent 100%);
-    opacity: 0.2;
-  }
-
-  .hero-content { position: relative; z-index: 2; max-width: 720px; }
-
-  .hero-eyebrow {
-    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.5rem;
-    display: flex; align-items: center; gap: 1rem;
-  }
-  .hero-eyebrow::before {
-    content: ''; display: inline-block; width: 40px; height: 1px;
-    background: var(--gold);
-  }
-
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    font-weight: 300;
-    line-height: 1.05;
-    color: var(--cream);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.01em;
-  }
-  .hero-title em { font-style: italic; color: var(--gold); }
-
-  .hero-sub {
-    font-size: 14px; line-height: 1.9; color: var(--muted);
-    max-width: 460px; margin-bottom: 3rem;
-  }
-
-  .hero-cta {
-    display: inline-flex; align-items: center; gap: 0.75rem;
-    color: var(--cream); text-decoration: none;
-    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
-    border-bottom: 1px solid var(--gold-dim); padding-bottom: 4px;
-    transition: color 0.3s, border-color 0.3s;
-  }
-  .hero-cta:hover { color: var(--gold); border-color: var(--gold); }
-  .hero-cta .arrow { transition: transform 0.3s; }
-  .hero-cta:hover .arrow { transform: translateX(4px); }
-
-  .hero-scroll {
-    position: absolute; bottom: 2.5rem; right: 3rem;
-    font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--muted); writing-mode: vertical-rl;
-    display: flex; align-items: center; gap: 1rem;
-  }
-  .hero-scroll::after {
-    content: ''; display: block; width: 1px; height: 60px;
-    background: var(--muted);
-  }
-
-  /* ── SECTIONS ── */
-  section { padding: 7rem 3rem; }
-
-  .section-label {
-    font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 3rem;
-    display: flex; align-items: center; gap: 1rem;
-  }
-  .section-label::after {
-    content: ''; flex: 1; height: 1px; background: var(--mid); max-width: 80px;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 300; color: var(--cream);
-    line-height: 1.15; margin-bottom: 2rem;
-  }
-  .section-title em { font-style: italic; color: var(--gold); }
-
-  /* ── ABOUT ── */
-  #about { background: var(--dark); }
-
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 5rem; max-width: 1100px; align-items: start;
-  }
-
-  .about-body p { margin-bottom: 1.25rem; font-size: 15px; color: var(--text); }
-
-  .about-stats {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem;
-  }
-  .stat { border-left: 1px solid var(--gold-dim); padding-left: 1.25rem; }
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; font-weight: 300; color: var(--cream); line-height: 1;
-  }
-  .stat-label { font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; }
-
-  .about-right { padding-top: 2rem; }
-  .ethos-list { list-style: none; }
-  .ethos-list li {
-    display: flex; align-items: flex-start; gap: 1rem;
-    font-size: 14px; color: var(--text); padding: 1rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
-  .ethos-list li::before {
-    content: '—'; color: var(--gold); flex-shrink: 0; margin-top: 1px;
-  }
-
-  /* ── FILMS ── */
-  #films { background: var(--black); }
-
-  .films-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
-    max-width: 1100px;
-  }
-
-  .film-card {
-    position: relative; background: var(--mid);
-    padding: 2.5rem; overflow: hidden;
-    transition: background 0.4s;
-  }
-  .film-card::before {
-    content: ''; position: absolute; top: 0; left: 0;
-    width: 3px; height: 100%;
-    background: linear-gradient(to bottom, var(--stripe-r), var(--stripe-y), var(--stripe-b));
-  }
-  .film-card:hover { background: #222; }
-
-  .film-tag {
-    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1rem;
-  }
-  .film-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem; font-weight: 400; color: var(--cream);
-    line-height: 1.2; margin-bottom: 0.75rem;
-  }
-  .film-desc { font-size: 13px; color: var(--muted); margin-bottom: 2rem; line-height: 1.7; }
-
-  .film-link {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    color: var(--gold); text-decoration: none;
-    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-    transition: opacity 0.3s;
-  }
-  .film-link:hover { opacity: 0.7; }
-  .film-link svg { width: 14px; height: 14px; }
-
-  /* ── SERVICES ── */
-  #services { background: var(--dark); }
-
-  .services-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1px; background: var(--mid); max-width: 1100px;
-  }
-  .service-item {
-    background: var(--dark); padding: 2rem 1.75rem;
-    transition: background 0.3s;
-  }
-  .service-item:hover { background: var(--mid); }
-  .service-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem; color: rgba(200,169,110,0.2);
-    margin-bottom: 0.75rem; display: block;
-  }
-  .service-title { font-size: 13px; font-weight: 500; color: var(--cream); margin-bottom: 0.5rem; }
-  .service-body { font-size: 12px; color: var(--muted); line-height: 1.7; }
-
-  /* ── SLATED ── */
-  #slated { background: var(--black); }
-
-  .slated-intro { max-width: 600px; font-size: 15px; color: var(--text); margin-bottom: 3rem; }
-
-  .slated-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1100px; }
-
-  .slated-group-title {
-    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 1.5rem;
-  }
-  .slated-list { list-style: none; }
-  .slated-list li {
-    display: flex; align-items: baseline; gap: 1rem;
-    padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.04);
-    font-size: 14px; color: var(--text);
-  }
-  .slated-list li::before {
-    content: ''; width: 5px; height: 5px; border-radius: 50%;
-    background: var(--gold-dim); flex-shrink: 0; margin-top: 6px;
-  }
-  .slated-year {
-    font-size: 11px; color: var(--muted); margin-left: auto; white-space: nowrap;
-  }
-
-  /* ── CEO ── */
-  #ceo { background: var(--dark); }
-
-  .ceo-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; max-width: 1100px; align-items: start; }
-
-  .ceo-initial {
-    width: 100%; aspect-ratio: 3/4;
-    background: var(--mid);
-    display: flex; align-items: center; justify-content: center;
-    border: 1px solid rgba(200,169,110,0.15);
-  }
-  .ceo-letter {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 8rem; font-weight: 300; color: rgba(200,169,110,0.2);
-  }
-
-  .ceo-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; font-weight: 300; color: var(--cream); margin-bottom: 0.25rem;
-  }
-  .ceo-role { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; }
-  .ceo-body p { font-size: 15px; color: var(--text); margin-bottom: 1.25rem; }
-
-  .influences {
-    margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem;
-  }
-  .influence-tag {
-    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--muted); border: 1px solid rgba(255,255,255,0.1);
-    padding: 4px 12px; border-radius: 2px;
-  }
-
-  /* ── CONTACT ── */
-  #contact {
-    background: var(--black);
-    min-height: 60vh; display: flex; flex-direction: column; justify-content: center;
-  }
-
-  .contact-inner { max-width: 700px; }
-  .contact-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300; color: var(--cream); margin-bottom: 3rem; line-height: 1.2;
-  }
-  .contact-tagline em { font-style: italic; color: var(--gold); }
-
-  .contact-items { display: flex; flex-direction: column; gap: 1.25rem; }
-  .contact-item {
-    display: flex; align-items: center; gap: 1.5rem;
-    font-size: 14px; color: var(--text);
-  }
-  .contact-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); min-width: 60px; }
-  .contact-value { color: var(--cream); text-decoration: none; transition: color 0.3s; }
-  .contact-value:hover { color: var(--gold); }
-
-  /* ── FOOTER ── */
-  footer {
-    padding: 2rem 3rem;
-    border-top: 1px solid var(--mid);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .footer-mark { font-size: 11px; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase; }
-  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--muted); font-style: italic; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 1.25rem 1.5rem; }
-    .nav-links { display: none; }
-    section { padding: 5rem 1.5rem; }
-    #hero { padding: 0 1.5rem 4rem; }
-    .about-grid, .films-grid, .slated-groups, .ceo-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .services-grid { grid-template-columns: 1fr; }
-    .about-stats { grid-template-columns: 1fr 1fr; }
-    footer { flex-direction: column; gap: 0.75rem; text-align: center; }
-  }
-
-  /* ── ANIMATIONS ── */
-  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .fade-up.visible { opacity: 1; transform: none; }
+.fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">
-    <div class="logo-mark">
-      <div class="logo-stripe ls-r"></div>
-      <div class="logo-stripe ls-y"></div>
-      <div class="logo-stripe ls-b"></div>
-    </div>
-    <span class="nav-wordmark">Awani Productions</span>
+    <img src="AWANI_LOGO_4.png" alt="Awani Productions">
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#films">Films</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#slated">Slated</a></li>
+    <li><a href="#ceo">Leadership</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grain"></div>
-  <div class="hero-line"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Lagos, Nigeria · Est. 2024</div>
-    <h1 class="hero-title">Reshaping<br><em>African</em><br>Narratives</h1>
-    <p class="hero-sub">An independent production company redefining African stories for the global stage through artful, authentic cinema.</p>
-    <a href="#films" class="hero-cta">View our work <span class="arrow">→</span></a>
+  <div class="hero-stripe-bar">
+    <div class="hs-r"></div>
+    <div class="hs-y"></div>
+    <div class="hs-b"></div>
   </div>
-  <div class="hero-scroll">Scroll</div>
+  <div class="hero-bg-letter">A</div>
+  <div class="hero-content">
+    <div class="hero-location">Lagos, Nigeria &nbsp;&middot;&nbsp; Est. 2024</div>
+    <h1 class="hero-title">Reshaping<br>African<br>Narratives</h1>
+    <p class="hero-sub">An independent production company based in Lagos, dedicated to producing authentic African cinema for global audiences.</p>
+    <a href="#films" class="hero-cta">Our Films &rarr;</a>
+  </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
-  <div class="section-label">About Us</div>
+  <div class="section-tag">About Us</div>
+  <h2 class="section-title">Who We Are</h2>
+  <div class="rule"></div>
   <div class="about-grid fade-up">
-    <div class="about-body">
-      <h2 class="section-title">Cinema as a tool for <em>truth</em></h2>
-      <p>Awani Productions Limited is a Nigerian production company based in Lagos. Founded on 14 September 2024, we exist to redefine and uplift African narratives through cinema — telling compelling stories that engage audiences locally and internationally.</p>
-      <p>Our vision is to place African cinema on the global stage, not as a novelty, but as a legitimate and powerful force in world culture.</p>
+    <div>
+      <div class="about-body">
+        <p>Awani Productions Limited is a Nigerian production company based in Lagos. Founded on 14 September 2024, we exist to redefine and uplift African narratives through cinema.</p>
+        <p>Our vision is to place African cinema on the global stage — not as a novelty, but as a legitimate and powerful force in world culture. Our mission is to produce authentic African films that tell compelling stories and engage audiences both locally and internationally.</p>
+      </div>
       <div class="about-stats">
-        <div class="stat">
-          <div class="stat-num">2</div>
-          <div class="stat-label">Short Films</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">2027</div>
-          <div class="stat-label">Feature Premiere</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">6+</div>
-          <div class="stat-label">Slated Projects</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">LOS</div>
-          <div class="stat-label">Lagos, Nigeria</div>
-        </div>
+        <div class="stat"><div class="stat-num">1</div><div class="stat-label">Short Film</div></div>
+        <div class="stat"><div class="stat-num">Q1</div><div class="stat-label">2027 Feature Premiere</div></div>
+        <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Slated Projects</div></div>
+        <div class="stat"><div class="stat-num">LOS</div><div class="stat-label">Lagos, Nigeria</div></div>
       </div>
     </div>
-    <div class="about-right">
-      <p class="section-label" style="margin-bottom: 1.25rem;">Our Ethos</p>
+    <div>
+      <div class="ethos-label">Company Ethos</div>
       <ul class="ethos-list">
         <li>Commitment to excellence in authentic storytelling</li>
         <li>Innovation in audiovisual and narrative form</li>
-        <li>Promoting eco-friendly practices in film production</li>
+        <li>Promoting efficient and eco-friendly practices in film production</li>
         <li>Nurturing emerging African talent</li>
         <li>Ethical collaboration and best labour practices</li>
       </ul>
@@ -446,78 +281,44 @@
   </div>
 </section>
 
-<!-- FILMS -->
 <section id="films">
-  <div class="section-label">Our Work</div>
-  <h2 class="section-title" style="margin-bottom: 3rem;">Short <em>Films</em></h2>
-  <div class="films-grid fade-up">
+  <div class="section-tag">Previous Work</div>
+  <h2 class="section-title">Our Films</h2>
+  <div class="rule"></div>
+  <div class="fade-up">
     <div class="film-card">
-      <div class="film-tag">Short Film · 2024 · Debut</div>
+      <div class="film-tag">Short Film &nbsp;&middot;&nbsp; 2024 &nbsp;&middot;&nbsp; Debut</div>
       <h3 class="film-title">Happy Times</h3>
       <p class="film-desc">Written and directed by Khalil Agboola. Shot on location in Lagos, Nigeria. Screened across Nigeria to widespread acclaim. A private screener is available upon request.</p>
       <a href="https://vimeo.com/1029566164/65d6135f63" target="_blank" rel="noopener" class="film-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
-        Watch Trailer
-      </a>
-    </div>
-    <div class="film-card">
-      <div class="film-tag">Short Film · 2025</div>
-      <h3 class="film-title">Water</h3>
-      <p class="film-desc">The latest short film from Awani Productions. Written and directed by Khalil Agboola, continuing the company's mission of crafting authentic African stories for the global screen.</p>
-      <a href="https://vimeo.com/1136833900/338d43bd5d" target="_blank" rel="noopener" class="film-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
         Watch Trailer
       </a>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
 <section id="services">
-  <div class="section-label">What We Do</div>
-  <h2 class="section-title" style="margin-bottom: 3rem;">Full-spectrum <em>production</em></h2>
+  <div class="section-tag">What We Do</div>
+  <h2 class="section-title">Our Services</h2>
+  <div class="rule"></div>
   <div class="services-grid fade-up">
-    <div class="service-item">
-      <span class="service-num">01</span>
-      <div class="service-title">IP Development</div>
-      <div class="service-body">Transforming creative concepts into proprietary intellectual property for global film markets.</div>
-    </div>
-    <div class="service-item">
-      <span class="service-num">02</span>
-      <div class="service-title">Rights & IP</div>
-      <div class="service-body">Securing and developing underlying rights and intellectual property for film projects.</div>
-    </div>
-    <div class="service-item">
-      <span class="service-num">03</span>
-      <div class="service-title">End-to-End Production</div>
-      <div class="service-body">Full lifecycle management from early development through to distribution.</div>
-    </div>
-    <div class="service-item">
-      <span class="service-num">04</span>
-      <div class="service-title">Talent Acquisition</div>
-      <div class="service-body">Strategic casting tailored to each project's artistic vision and commercial objectives.</div>
-    </div>
-    <div class="service-item">
-      <span class="service-num">05</span>
-      <div class="service-title">Strategic Consulting</div>
-      <div class="service-body">Positioning film projects for market success through strategic advisory.</div>
-    </div>
-    <div class="service-item">
-      <span class="service-num">06</span>
-      <div class="service-title">Finance & Promotion</div>
-      <div class="service-body">Fundraising, investment management, and promotional strategy development.</div>
-    </div>
+    <div class="service-item"><div class="service-num">01</div><div class="service-title">IP Development</div><div class="service-body">Transforming creative concepts into proprietary intellectual property for global film markets.</div></div>
+    <div class="service-item"><div class="service-num">02</div><div class="service-title">Rights & IP</div><div class="service-body">Securing and developing underlying rights and intellectual property for film projects.</div></div>
+    <div class="service-item"><div class="service-num">03</div><div class="service-title">End-to-End Production</div><div class="service-body">Full lifecycle management from early development through to distribution.</div></div>
+    <div class="service-item"><div class="service-num">04</div><div class="service-title">Talent Acquisition</div><div class="service-body">Strategic casting tailored to each project's artistic vision and commercial objectives.</div></div>
+    <div class="service-item"><div class="service-num">05</div><div class="service-title">Strategic Consulting</div><div class="service-body">Positioning film projects for market success through strategic advisory.</div></div>
+    <div class="service-item"><div class="service-num">06</div><div class="service-title">Finance & Promotion</div><div class="service-body">Fundraising, investment management, and promotional strategy for film projects.</div></div>
   </div>
 </section>
 
-<!-- SLATED -->
 <section id="slated">
-  <div class="section-label">Coming Soon</div>
-  <h2 class="section-title">Slated <em>Productions</em></h2>
-  <p class="slated-intro">An ambitious slate spanning short films and features — all rooted in authentic African storytelling.</p>
-  <div class="slated-groups fade-up">
+  <div class="section-tag">Coming Soon</div>
+  <h2 class="section-title">Slated Productions</h2>
+  <div class="rule"></div>
+  <div class="slated-grid fade-up">
     <div>
-      <div class="slated-group-title">Feature Films · 2025–2032</div>
+      <div class="slated-group-label">Feature Films</div>
       <ul class="slated-list">
         <li>To Greener Pastures <span class="slated-year">World Premiere Q1 2027</span></li>
         <li>Days in the East <span class="slated-year">TBC</span></li>
@@ -528,28 +329,26 @@
       </ul>
     </div>
     <div>
-      <div class="slated-group-title">Short Films · 2026–2028</div>
+      <div class="slated-group-label">Short Films</div>
       <ul class="slated-list">
         <li>Recess <span class="slated-year">In Development</span></li>
-        <li>Akudaaya (Three Times Alive) <span class="slated-year">In Development</span></li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- CEO -->
 <section id="ceo">
-  <div class="section-label">Leadership</div>
+  <div class="section-tag">Leadership</div>
+  <h2 class="section-title">Founder & CEO</h2>
+  <div class="rule"></div>
   <div class="ceo-grid fade-up">
-    <div class="ceo-initial">
-      <span class="ceo-letter">KA</span>
-    </div>
+    <div class="ceo-portrait"><div class="ceo-initials">KA</div></div>
     <div>
-      <h2 class="ceo-name">Khalil Agboola</h2>
-      <div class="ceo-role">Founder & CEO</div>
+      <div class="ceo-name">Khalil Agboola</div>
+      <div class="ceo-role">Founder & Chief Executive Officer</div>
       <div class="ceo-body">
         <p>Born and raised in Rivers State, Nigeria, Khalil is a Lagos-based filmmaker and engineer. Formally trained as an Electrical/Electronic Engineer at Cardiff University, Wales, he chose to pursue a career in film after spending his university years seeking solace and inspiration from cinema.</p>
-        <p>A multidisciplinary filmmaker versed in production, directing, screenwriting, and montage, Khalil has had his work screened across Nigeria to widespread acclaim. He founded Awani Productions in 2024 with the singular aim of redefining African narratives through film.</p>
+        <p>A multidisciplinary filmmaker versed in production, directing, screenwriting, and montage, Khalil has had his work screened across Nigeria to widespread acclaim. He founded Awani Productions in 2024 with the aim of redefining African narratives through film.</p>
       </div>
       <div class="influences">
         <span class="influence-tag">Akira Kurosawa</span>
@@ -560,39 +359,26 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-  <div class="contact-inner fade-up">
-    <div class="section-label">Get In Touch</div>
-    <p class="contact-tagline">Every great film<br>begins with a <em>conversation.</em></p>
-    <div class="contact-items">
-      <div class="contact-item">
-        <span class="contact-label">Email</span>
-        <a href="mailto:Awaniproductions@gmail.com" class="contact-value">Awaniproductions@gmail.com</a>
-      </div>
-      <div class="contact-item">
-        <span class="contact-label">Phone</span>
-        <a href="tel:+2347086176378" class="contact-value">+234 708 617 6378</a>
-      </div>
-      <div class="contact-item">
-        <span class="contact-label">Base</span>
-        <span class="contact-value">Lagos, Nigeria</span>
-      </div>
-    </div>
+  <div class="section-tag">Get In Touch</div>
+  <div class="contact-headline fade-up">For all enquiries,<br>reach us directly.</div>
+  <div class="contact-items fade-up">
+    <div class="contact-row"><span class="contact-key">Email</span><a href="mailto:Awaniproductions@gmail.com" class="contact-val">Awaniproductions@gmail.com</a></div>
+    <div class="contact-row"><span class="contact-key">Phone</span><a href="tel:+2347086176378" class="contact-val">+234 708 617 6378</a></div>
+    <div class="contact-row"><span class="contact-key">Base</span><span class="contact-val">Lagos, Nigeria</span></div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <span class="footer-mark">© 2025 Awani Productions Limited</span>
-  <span class="footer-tagline">Reshaping African Narratives</span>
+  <span class="footer-copy">&copy; 2025 Awani Productions Limited</span>
+  <span class="footer-tag">Reshaping African Narratives</span>
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
+  const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
